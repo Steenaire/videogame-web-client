@@ -1,9 +1,18 @@
+<table>
+  <tr>
+    <th>Game Title</th>
+    <th>Release Date</th>
+    <th>Genre</th>
+    <th>Gameplay</th>
+    <th>Steen Rating</th>
+  </tr>
 <% @videogames.each do |videogame| %>
-  <ul>
-    <li>Game Title: <%= videogame["name"] %></li>
-    <li>Release Date: <%= videogame["release_date"] %></li>
-    <li>Genre: <%= videogame["genre"] %></li>
-    <li>Gameplay: <%= videogame["gameplay"] %></li>
-    <li>Steen Rating: <%= videogame["steen_rating"] %>/10 </li>
-  </ul>
+  <tr>
+    <td>Game Title: <%= videogame["name"] %></td>
+    <td>Release Date: <%= videogame["release_date"] %></td>
+    <td>Genre: <%= videogame["genre"] %></td>
+    <td>Gameplay: <%= videogame["gameplay"] %></td>
+    <td>Steen Rating: <%= videogame["steen_rating"] %>/10 </td>
+  </tr>
 <% end %>
+</table>
