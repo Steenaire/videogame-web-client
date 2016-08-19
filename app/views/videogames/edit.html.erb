@@ -1,6 +1,6 @@
 <h1>Edit a Video Game:</h1>
 
-<%= form_tag "/videogames/#{@videogame["id"]}", method: :post do %>
+<%= form_tag "/videogames/#{@videogame['id']}", method: :post do %>
 
   <div>
     <%= label_tag :name %>
@@ -26,6 +26,9 @@
 
 <% end %>
 
-<%= form_tag "/videogames/#{@videogame["id"]}", method: :delete do %>
+<%= form_tag "/videogames/#{@videogame['id']}", method: :delete do %>
   <%= submit_tag "Delete Game" %>
 <% end %>
+
+<a href ="/videogames/<%= @videogame['id'] %>">Back to Videogame</a>
+<a href = "/videogames">Back to Index</a>
