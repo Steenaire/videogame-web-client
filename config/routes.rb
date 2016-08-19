@@ -5,6 +5,6 @@ Rails.application.routes.draw do
   get '/', to: 'videogames#index'
   get '/videogames', to: 'videogames#index'
   get '/videogames/:id/edit', to: 'videogames#edit', as: 'edit_videogame'
-  post '/videogames/:id/', to: 'videogames#update'
+  patch '/videogames/:id/', to: 'videogames#update'
   delete '/videogames/:id', to: 'videogames#destroy'
 end

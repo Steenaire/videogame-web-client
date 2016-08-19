@@ -8,7 +8,7 @@
   </tr>
 <% @videogames.each do |videogame| %>
   <tr>
-    <td><a href ="/videogames/<%= videogame['id'] %>">Game Title: <%= videogame["name"] %></a></td>
+    <td><a href ="/videogames/<%= videogame["id"] %>">Game Title: <%= videogame["name"] %></a></td>
     <td>Release Date: <%= videogame["release_date"] %></td>
     <td>Genre: <%= videogame["genre"] %></td>
     <td>Gameplay: <%= videogame["gameplay"] %></td>
