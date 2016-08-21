@@ -12,9 +12,7 @@ class VideogamesController < ApplicationController
   end
 
   def create
-    creation_hash = { name: params[:name],release_date: params[:release_date],genre: params[:genre],gameplay: params[:gameplay],steen_rating: params[:steen_rating] }
-    
-    Videogame.create(creation_hash)
+    Videogame.create({ name: params[:name],release_date: params[:release_date],genre: params[:genre],gameplay: params[:gameplay],steen_rating: params[:steen_rating] })
     redirect_to '/videogames'
   end
 
@@ -23,9 +21,7 @@ class VideogamesController < ApplicationController
   end
 
   def update
-    update_hash = { name: params[:name],release_date: params[:release_date],genre: params[:genre],gameplay: params[:gameplay],steen_rating: params[:steen_rating] }
-
-    Videogame.find(params[:id]).update(update_hash)
+    Videogame.find(params[:id]).update({ name: params[:name],release_date: params[:release_date],genre: params[:genre],gameplay: params[:gameplay],steen_rating: params[:steen_rating] })
     redirect_to '/videogames/'
   end
 
