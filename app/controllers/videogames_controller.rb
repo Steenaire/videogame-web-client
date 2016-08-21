@@ -1,10 +1,10 @@
 class VideogamesController < ApplicationController
 
   def index
-    videogames_hash = Unirest.get("#{ENV['DOMAIN']}/videogames.json").body
+    videogame_hashes = Unirest.get("#{ENV['DOMAIN']}/videogames.json").body
     @videogames = []
 
-    videogames_hash.each do |videogame|
+    videogame_hashes.each do |videogame|
       @videogames << Videogame.new(videogame)
     end
   end
