@@ -38,8 +38,7 @@ class VideogamesController < ApplicationController
   end
 
   def destroy
-    videogame = Videogame.find(params[:id])
-    videogame.delete
+    Videogame.find(params[:id]).delete
     redirect_to '/videogames'
   end
 
