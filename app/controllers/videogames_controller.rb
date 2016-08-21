@@ -5,7 +5,8 @@ class VideogamesController < ApplicationController
   end
 
   def show
-    @videogame = Unirest.get("#{ENV['DOMAIN']}/videogames/#{params[:id]}.json").body
+    videogame_hash = Unirest.get("#{ENV['DOMAIN']}/videogames/#{params[:id]}.json").body
+    @videogame = Videogame.new(videogame_hash)
   end
 
   def new
