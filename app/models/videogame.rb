@@ -30,13 +30,13 @@ class Videogame
     Unirest.delete("#{ENV['DOMAIN']}/videogames/#{self.id}.json").body
   end
 
-  def update(name,release_date,genre,gameplay,steen_rating)
+  def update(update_hash)
     Unirest.patch("#{ENV['DOMAIN']}/videogames/#{self.id}.json",
-      parameters:{name: name,
-      release_date: release_date,
-      genre: genre,
-      gameplay: gameplay,
-      steen_rating: steen_rating
+      parameters:{name: update_hash[:name],
+      release_date: update_hash[:release_date],
+      genre: update_hash[:genre],
+      gameplay: update_hash[:gameplay],
+      steen_rating: update_hash[:steen_rating]
       }).body
   end
 
