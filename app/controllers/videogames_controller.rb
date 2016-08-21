@@ -1,12 +1,7 @@
 class VideogamesController < ApplicationController
 
   def index
-    videogame_hashes = Unirest.get("#{ENV['DOMAIN']}/videogames.json").body
-    @videogames = []
-
-    videogame_hashes.each do |videogame_hash|
-      @videogames << Videogame.new(videogame_hash)
-    end
+    @videogames = Videogame.all
   end
 
   def show
@@ -43,7 +38,8 @@ class VideogamesController < ApplicationController
   end
 
   def destroy
-    Unirest.delete("#{ENV['DOMAIN']}/videogames/#{params[:id]}.json").body
+    videogame = Videogame.find(params[:id])
+    videogame.delete
     redirect_to '/videogames'
   end
 

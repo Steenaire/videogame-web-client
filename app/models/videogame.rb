@@ -16,4 +16,18 @@ class Videogame
     return Videogame.new(videogame_hash)
   end
 
+  def self.all
+    videogame_hashes = Unirest.get("#{ENV['DOMAIN']}/videogames.json").body
+    videogames = []
+
+    videogame_hashes.each do |videogame_hash|
+      videogames << Videogame.new(videogame_hash)
+    end
+    return videogames
+  end
+
+  def delete
+    Unirest.delete("#{ENV['DOMAIN']}/videogames/#{self.id}.json").body
+  end
+
 end
