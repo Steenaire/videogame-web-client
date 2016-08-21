@@ -31,23 +31,11 @@ class Videogame
   end
 
   def update(update_hash)
-    Unirest.patch("#{ENV['DOMAIN']}/videogames/#{self.id}.json",
-      parameters:{name: update_hash[:name],
-      release_date: update_hash[:release_date],
-      genre: update_hash[:genre],
-      gameplay: update_hash[:gameplay],
-      steen_rating: update_hash[:steen_rating]
-      }).body
+    Unirest.patch("#{ENV['DOMAIN']}/videogames/#{self.id}.json", parameters: update_hash).body
   end
 
   def self.create(creation_hash)
-    Unirest.post("#{ENV['DOMAIN']}/videogames.json",
-      parameters:{name: creation_hash[:name],
-      release_date: creation_hash[:release_date],
-      genre: creation_hash[:genre],
-      gameplay: creation_hash[:gameplay],
-      steen_rating: creation_hash[:steen_rating]
-      }).body
+    Unirest.post("#{ENV['DOMAIN']}/videogames.json", parameters: creation_hash).body
   end
 
 end
