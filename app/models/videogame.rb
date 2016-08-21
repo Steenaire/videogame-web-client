@@ -11,4 +11,9 @@ class Videogame
     @steen_rating = videogame_hash['steen_rating']
   end
 
+  def self.find(id)
+    videogame_hash = Unirest.get("#{ENV['DOMAIN']}/videogames/#{id}.json").body
+    return Videogame.new(videogame_hash)
+  end
+
 end
