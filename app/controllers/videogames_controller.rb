@@ -4,8 +4,8 @@ class VideogamesController < ApplicationController
     videogame_hashes = Unirest.get("#{ENV['DOMAIN']}/videogames.json").body
     @videogames = []
 
-    videogame_hashes.each do |videogame|
-      @videogames << Videogame.new(videogame)
+    videogame_hashes.each do |videogame_hash|
+      @videogames << Videogame.new(videogame_hash)
     end
   end
 
