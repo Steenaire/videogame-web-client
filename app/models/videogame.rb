@@ -12,12 +12,12 @@ class Videogame
   end
 
   def self.find(id)
-    videogame_hash = Unirest.get("#{ENV['DOMAIN']}/videogames/#{id}.json", headers:{ "Accept" => "application/json", "Authorization" => "Token token=#{ENV['VIDEOGAMEAPIKEY']}", "X-User-Email" => "cmclarkey@gmail.com" }).body
+    videogame_hash = Unirest.get("#{ENV['DOMAIN']}/videogames/#{id}.json", headers:{ "Accept" => "application/json", "Authorization" => "Token token=#{ENV['VIDEOGAMEAPIKEY']}", "X-User-Email" => "#{ENV['STEENEMAIL']}" }).body
     return Videogame.new(videogame_hash)
   end
 
   def self.all
-    videogame_hashes = Unirest.get("#{ENV['DOMAIN']}/videogames.json", headers:{ "Accept" => "application/json", "Authorization" => "Token token=#{ENV['VIDEOGAMEAPIKEY']}", "X-User-Email" => "cmclarkey@gmail.com" }).body
+    videogame_hashes = Unirest.get("#{ENV['DOMAIN']}/videogames.json", headers:{ "Accept" => "application/json", "Authorization" => "Token token=#{ENV['VIDEOGAMEAPIKEY']}", "X-User-Email" => "#{ENV['STEENEMAIL']}" }).body
     videogames = []
 
     videogame_hashes.each do |videogame_hash|
@@ -27,15 +27,15 @@ class Videogame
   end
 
   def delete
-    Unirest.delete("#{ENV['DOMAIN']}/videogames/#{self.id}.json", headers:{ "Accept" => "application/json", "Authorization" => "Token token=#{ENV['VIDEOGAMEAPIKEY']}", "X-User-Email" => "cmclarkey@gmail.com" }).body
+    Unirest.delete("#{ENV['DOMAIN']}/videogames/#{self.id}.json", headers:{ "Accept" => "application/json", "Authorization" => "Token token=#{ENV['VIDEOGAMEAPIKEY']}", "X-User-Email" => "#{ENV['STEENEMAIL']}" }).body
   end
 
   def update(update_hash)
-    Unirest.patch("#{ENV['DOMAIN']}/videogames/#{self.id}.json", parameters: update_hash, headers:{ "Accept" => "application/json", "Authorization" => "Token token=#{ENV['VIDEOGAMEAPIKEY']}", "X-User-Email" => "cmclarkey@gmail.com" }).body
+    Unirest.patch("#{ENV['DOMAIN']}/videogames/#{self.id}.json", parameters: update_hash, headers:{ "Accept" => "application/json", "Authorization" => "Token token=#{ENV['VIDEOGAMEAPIKEY']}", "X-User-Email" => "#{ENV['STEENEMAIL']}" }).body
   end
 
   def self.create(creation_hash)
-    Unirest.post("#{ENV['DOMAIN']}/videogames.json", parameters: creation_hash, headers:{ "Accept" => "application/json", "Authorization" => "Token token=#{ENV['VIDEOGAMEAPIKEY']}", "X-User-Email" => "cmclarkey@gmail.com" }).body
+    Unirest.post("#{ENV['DOMAIN']}/videogames.json", parameters: creation_hash, headers:{ "Accept" => "application/json", "Authorization" => "Token token=#{ENV['VIDEOGAMEAPIKEY']}", "X-User-Email" => "#{ENV['STEENEMAIL']}" }).body
   end
 
 end
